@@ -1,0 +1,49 @@
+﻿@model HomeModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <h3>@Model.Name</h3>
+    <h2>@Model.Age</h2>
+    <h4>@ViewBag.Message</h4>
+    <p>@ViewData["Messages"]</p>
+    <p>@TempData["Message"]</p>
+    <b>@TempData["Log"]</b>
+    @{
+        var sum = 32 + 10;
+        var greeting = "Hell0 World";
+        var text = "";
+        for (int i = 0; i < 3; i++)
+        {
+            text += greeting + "This result is: " + sum + "\n";
+        }
+    }
+
+    @for (int i = 0; i < 5; i++)
+    {
+        <h1>Hello @i</h1> <br>
+    }
+    <h2> Code Blocks</h2>
+    @Html.Partial("_TestPartial")
+    Text : @text;
+    <a asp-action="RedirectToAnotherAction">Redirect to Error Page</a><br />
+    <a asp-action="GetJsonData">Get Json Data</a><br />
+    <a asp-action="DownloadFile">Download File</a><br />
+    <a asp-action="PlainText">PlainText</a> <br />
+    <a asp-action="ShowPartial">Partial View</a>
+    @Html.Partial("_TestPartial")
+
+    @{
+        var name = "Bishow";
+    }
+    <h1>@name</h1>
+
+    @if (name =="Bishow")
+    {
+        <h1>Yes Name is correct</h1>
+    }
+    
+
+</div>
